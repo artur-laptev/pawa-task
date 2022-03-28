@@ -49,6 +49,10 @@ export default {
     border-radius: 5px;
   }
 
+  > input[type="date"] {
+    appearance: textfield;
+  }
+
   > select {
     padding-right: 28px;
     vertical-align: middle;

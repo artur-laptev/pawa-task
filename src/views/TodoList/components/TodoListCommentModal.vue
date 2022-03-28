@@ -135,8 +135,14 @@ export default {
     align-items: center;
     justify-content: space-between;
 
-    &-input {
-      margin: 0 16px 0 0;
+    @media only screen and (min-width: 801px) {
+      &-input {
+        margin: 0 16px 0 0;
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
     }
   }
 }

@@ -51,7 +51,8 @@ export default {
   background-color: var(--White);
   margin: auto;
   padding: 20px;
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   box-shadow: 0 4px 8px 0 rgba(0 ,0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation: animatetop 0.4s;
 

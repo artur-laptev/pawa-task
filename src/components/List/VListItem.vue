@@ -67,6 +67,10 @@ export default {
     align-items: center;
   }
 
+  &__right {
+    white-space: nowrap;
+  }
+
   &__checkbox {
     width: 18px;
     height: 18px;

@@ -155,7 +155,7 @@ export default {
 
 <style lang="scss" scoped>
 .todo-page {
-  max-width: 800px;
+  max-width: 840px;
   margin: 0 auto;
   padding: 20px;
 
