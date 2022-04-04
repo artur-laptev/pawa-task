@@ -73,11 +73,13 @@ export default {
 
   &__checkbox {
     width: 18px;
+    min-width: 18px;
     height: 18px;
 
     &-label {
+      margin: 0 8px;
       font-size: 18px;
-      margin-left: 8px;
+      word-break: break-all;
     }
   }
 

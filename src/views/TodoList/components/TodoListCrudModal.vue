@@ -13,6 +13,7 @@
           v-model="taskToEdit.title"
           required
           type="text"
+          maxlength="200"
         >
       </VFormControl>
       <VFormControl
@@ -23,6 +24,7 @@
           id="description"
           v-model="taskToEdit.description"
           rows="3"
+          maxlength="200"
         />
       </VFormControl>
       <VFormControl

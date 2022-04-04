@@ -44,6 +44,7 @@
           placeholder="Write a comment"
           required
           type="text"
+          maxlength="200"
         >
       </VFormControl>
       <VButton label="Add comment" />
