@@ -9,11 +9,11 @@
       @click.stop
     >
       <div class="modal__header">
-        <div>
-          <slot name="title">
+        <slot name="title">
+          <div class="modal__header-title">
             {{ title }}
-          </slot>
-        </div>
+          </div>
+        </slot>
         <div
           class="modal__header-close"
           @click="emitClose"
@@ -66,6 +66,10 @@ export default {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+
+    @media only screen and (max-width: 500px) {
+      padding-top: 10%;
+    }
   }
 
   &__header {
@@ -74,6 +78,13 @@ export default {
     justify-content: space-between;
     font-size: 20px;
     font-weight: bold;
+
+    &-title {
+      width: calc(100% - 40px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     &-close {
       color: var(--TextDefault);

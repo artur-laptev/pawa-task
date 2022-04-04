@@ -1,13 +1,17 @@
 <template>
   <VModal @close="$emit('close')">
     <template #title>
-      {{ task.title }}
-      <span
-        class="comment__title-edit-btn"
-        @click="$emit('edit', task.id)"
-      >
-        Edit task
-      </span>
+      <div class="comment__modal-header">
+        <div class="comment__modal-header-title">
+          {{ task.title }}
+        </div>
+        <span
+          class="comment__modal-header-edit-btn"
+          @click="$emit('edit', task.id)"
+        >
+          Edit task
+        </span>
+      </div>
     </template>
     <div class="comment__task-content">
       {{ task.description }}
@@ -96,12 +100,25 @@ export default {
 
 <style lang="scss" scoped>
 .comment {
-  &__title-edit-btn {
-    margin-left: 8px;
-    color: var(--BrandDefault);
-    font-size: 14px;
-    text-decoration: underline;
-    cursor: pointer;
+  &__modal-header {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 40px);
+
+    &-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &-edit-btn {
+      margin-left: 16px;
+      color: var(--BrandDefault);
+      font-size: 14px;
+      white-space: nowrap;
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 
   &__task {
@@ -123,6 +140,7 @@ export default {
     &-item {
       margin-bottom: 24px;
       color: var(--TextDefault);
+      word-break: break-all;
 
       &-date {
         margin-left: 8px;

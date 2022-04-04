@@ -1,22 +1,26 @@
 <template>
   <div class="list-item">
     <div class="list-item__left">
-      <input
-        :id="`status-${item.id}`"
-        type="checkbox"
-        :checked="item.isDone"
-        class="list-item__checkbox"
-        @change="$emit('status', $event.target.checked)"
-      >
-      <label
-        :for="`status-${item.id}`"
-        class="list-item__checkbox-label"
-      >
-        {{ item.title }}
-      </label>
+      <div class="list-item__checkbox-wrapper">
+        <input
+          :id="`status-${item.id}`"
+          type="checkbox"
+          :checked="item.isDone"
+          class="list-item__checkbox"
+          @change="$emit('status', $event.target.checked)"
+        >
+        <label
+          :for="`status-${item.id}`"
+          class="list-item__checkbox-label"
+        >
+          {{ item.title }}
+        </label>
+      </div>
+      <div class="list-item__date">
+        📅 {{ getLocalDate(item.todoDate) }}
+      </div>
     </div>
     <div class="list-item__right">
-      <div>📅 {{ getLocalDate(item.todoDate) }}</div>
       <VButton
         label="💬"
         class="list-item__button"
@@ -67,7 +71,12 @@ export default {
     align-items: center;
   }
 
-  &__right {
+  &__left {
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  &__date {
     white-space: nowrap;
   }
 
@@ -75,6 +84,11 @@ export default {
     width: 18px;
     min-width: 18px;
     height: 18px;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+    }
 
     &-label {
       margin: 0 8px;
@@ -85,6 +99,25 @@ export default {
 
   &__button {
     margin-left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    &__left,
+    &__right {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    &__date {
+      margin-top: 16px;
+    }
+
+    &__button {
+      & + & {
+        margin-top: 8px;
+      }
+    }
   }
 }
 </style>
